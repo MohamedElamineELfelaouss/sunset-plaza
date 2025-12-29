@@ -13,6 +13,7 @@ class SubmitContactRequestView(generics.CreateAPIView):
     queryset = ContactRequest.objects.all()
     serializer_class = ContactRequestSerializer
     permission_classes = [permissions.AllowAny]
+    authentication_classes = []  # Ignore tokens completely for this view
 
     def perform_create(self, serializer):
         # Optional: Link to visitor if logged in
