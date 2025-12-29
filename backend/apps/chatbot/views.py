@@ -10,7 +10,8 @@ from apps.users.models import Visitor
 
 class ChatbotView(APIView):
     permission_classes = [AllowAny]
-
+    authentication_classes = []
+    
     def post(self, request):
         question = request.data.get("question")
         if not question:
