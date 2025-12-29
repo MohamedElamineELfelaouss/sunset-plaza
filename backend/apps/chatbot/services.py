@@ -12,13 +12,13 @@ class GeminiService:
     @staticmethod
     def generate_response(user_question):
         """
-        Sales-Focused AI Logic with COST-SAVING GUARDRAILS.
+        Sales-Focused AI Logic with COST-SAVING GUARDRAILS & BOOKING TRIGGERS.
         Uses gemini-2.0-flash for speed and low cost.
         """
         # Initialize Client with the key from settings
         client = genai.Client(api_key=settings.GEMINI_API_KEY)
 
-        # --- THE SALES PERSONA + GUARDRAILS ---
+        # --- THE SALES PERSONA + GUARDRAILS + CLOSER ---
         system_instruction = f"""
         ROLE: You are the Senior Investment Consultant for 'Sunset Plaza', a premier real estate development offering high-end professional office spaces.
         
@@ -44,6 +44,13 @@ class GeminiService:
         4. Never just say "I don't know." Pivot to: "That's a great detail, let's discuss it in a private meeting to fit your specific needs."
         5. Keep responses short, punchy, and seductive.
         
+        *** THE CLOSING STRATEGY (NEW) ***
+        If the visitor shows clear interest (e.g., "I want to invest", "Book a meeting", "What's the price?", "Yes"), you must CLOSE THE DEAL.
+        
+        1. Do NOT ask them to type their email in the chat (it's not secure).
+        2. Instead, say something encouraging like: "Excellent choice. Let's secure your position. Please fill out the form below to book your private consultation."
+        3. APPEND exactly this tag to the end of your response: <SHOW_BOOKING_FORM>
+        
         CONTEXT: Sunset Plaza is the future of business luxury. Don't just answer questions; SELL THE DREAM.
         """
 
@@ -54,7 +61,7 @@ class GeminiService:
                 contents=f"{system_instruction}\n\nVisitor Question: {user_question}\n\nYour Persuasive Answer:",
             )
 
-            # Optional: Double-check if the model generated the off-topic message and return it clean
+            # Double-check: If the model generated the off-topic message, return it clean
             if OFF_TOPIC_MESSAGE in response.text:
                 return OFF_TOPIC_MESSAGE
 
@@ -71,8 +78,6 @@ class GeminiService:
         Returns: (InterestCategory, float)
             - High score (0.95) for specific sales keywords.
             - Low score (0.5) for general inquiries.
-        Categorizes the intent to help the Admin see what leads are interested in.
-        Simple keyword matching (Fast & No Overengineering).
         """
         text = text.lower()
 
@@ -85,7 +90,20 @@ class GeminiService:
             return cat, 0.95
 
         elif any(
-            w in text for w in ["invest", "roi", "profit", "yield", "money", "buy"]
+            w in text
+            for w in [
+                "invest",
+                "roi",
+                "profit",
+                "yield",
+                "money",
+                "buy",
+                "book",
+                "meeting",
+                "reserve",
+                "schedule",
+                "consultation",
+            ]
         ):
             cat = InterestCategory.objects.get_or_create(label="Investment")[0]
             return cat, 0.95
