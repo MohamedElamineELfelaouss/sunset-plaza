@@ -24,4 +24,6 @@ urlpatterns = [
     path("api/auth/", include("apps.users.urls")),
     # connect the chatbot API
     path("api/chatbot/", include("apps.chatbot.urls")),
+    # connect the contacts API
+    path("api/contacts/", include("apps.contacts.urls")),
 ]

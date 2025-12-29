@@ -1,28 +1,44 @@
 from django.db import models
+from django.utils.translation import gettext_lazy as _
 from apps.users.models import Visitor
 
 
 class ContactRequest(models.Model):
     class RequestType(models.TextChoices):
-        INFO = "INFO", "Information"
-        CONTACT = "CONTACT", "Contact Request"
+        INVESTMENT = "INVESTMENT", _("Investment Inquiry")
+        INFO = "INFO", _("General Information")
+        MEETING = "MEETING", _("Book a Meeting")
 
     class Status(models.TextChoices):
-        PENDING = "PENDING", "Pending"
-        TREATED = "TREATED", "Treated"
+        PENDING = "PENDING", _("Pending")
+        CONTACTED = "CONTACTED", _("Contacted")
+        CLOSED = "CLOSED", _("Closed")
 
+    # --- FIX: Add these fields for Anonymous Users ---
+    name = models.CharField(max_length=100)  # The missing field causing the 500 error
+    email = models.EmailField()
+    phone = models.CharField(max_length=20)
+    # -------------------------------------------------
+
+    # Optional link to a registered Visitor
     visitor = models.ForeignKey(
-        Visitor, on_delete=models.CASCADE, related_name="contact_requests"
+        Visitor,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name="contact_requests",
     )
+
     request_type = models.CharField(
-        max_length=50, choices=RequestType.choices, default=RequestType.INFO
+        max_length=20, choices=RequestType.choices, default=RequestType.INFO
     )
-    subject = models.CharField(max_length=255)
+
     message = models.TextField()
-    request_date = models.DateTimeField(auto_now_add=True)
     status = models.CharField(
-        max_length=50, choices=Status.choices, default=Status.PENDING
+        max_length=20, choices=Status.choices, default=Status.PENDING
     )
+
+    created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"{self.subject} - {self.status}"
+        return f"{self.name} - {self.request_type}"
