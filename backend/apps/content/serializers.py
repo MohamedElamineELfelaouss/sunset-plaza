@@ -5,4 +5,12 @@ from .models import SiteContent
 class SiteContentSerializer(serializers.ModelSerializer):
     class Meta:
         model = SiteContent
-        fields = ["title", "description", "updated_at"]
+        fields = [
+            "id",
+            "title",
+            "description",
+            "updated_at",
+            "image",
+            "content_type",
+            "price",
+        ]
