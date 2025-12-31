@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f7f3ef;
+  --foreground: #111827;
 }
 
 @theme inline {
@@ -16,8 +16,8 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #f7f3ef;
+    --foreground: #111827;
   }
 }
 
@@ -46,4 +46,30 @@ body {
   50% {
     transform: translateY(14px);
   }
+}
+
+@keyframes typingPulse {
+  0%,
+  100% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.typing-dot {
+  height: 6px;
+  width: 6px;
+  border-radius: 999px;
+  background: #94a3b8;
+  animation: typingPulse 1s ease-in-out infinite;
+}
+
+.typing-delay-1 {
+  animation-delay: 0.2s;
+}
+
+.typing-delay-2 {
+  animation-delay: 0.4s;
 }

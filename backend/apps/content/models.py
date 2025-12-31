@@ -13,6 +13,11 @@ class SiteContent(models.Model):
         NEWS = "NEWS", "News / Article"
         OFFICE = "OFFICE", "Office Space"
 
+    class DealType(models.TextChoices):
+        RENT = "RENT", "Rent"
+        BUY = "BUY", "Buy"
+        INVEST = "INVEST", "Invest"
+
     # --- Core Fields ---
     title = models.CharField(max_length=255)
     description = models.TextField()
@@ -29,6 +34,13 @@ class SiteContent(models.Model):
         max_length=50,
         choices=ContentType.choices,
         default=ContentType.NEWS,
+        db_index=True,
+    )
+
+    deal_type = models.CharField(
+        max_length=20,
+        choices=DealType.choices,
+        default=DealType.RENT,
         db_index=True,
     )
 

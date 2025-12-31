@@ -12,5 +12,8 @@ class SiteContentSerializer(serializers.ModelSerializer):
             "updated_at",
             "image",
             "content_type",
+            "deal_type",
             "price",
+            "surface_area",
+            "location",
         ]

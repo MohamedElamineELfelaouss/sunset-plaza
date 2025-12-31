@@ -29,6 +29,17 @@ class ChatbotView(APIView):
             # Otherwise, categorize normally based on the question
             category, confidence = GeminiService.categorize_interaction(question)
 
+        # 2b. CONTROL BOOKING FORM TRIGGER
+        booking_tag = "<SHOW_BOOKING_FORM>"
+        cleaned_response = ai_response.replace(booking_tag, "").strip()
+        should_trigger_booking = (
+            confidence >= 0.9 and category.label in {"Pricing", "Investment"}
+        )
+        if should_trigger_booking:
+            ai_response = f"{cleaned_response} {booking_tag}".strip()
+        else:
+            ai_response = cleaned_response
+
         # 3. Handle Visitor (Guest or User)
         visitor = None
         if request.user.is_authenticated and hasattr(request.user, "visitor_profile"):

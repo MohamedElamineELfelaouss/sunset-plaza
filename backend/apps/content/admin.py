@@ -1,4 +1,4 @@
-from django.contrib import admin
+﻿from django.contrib import admin
 from django.contrib import messages
 from .models import SiteContent
 from apps.users.models import Administrator
@@ -10,8 +10,9 @@ class SiteContentAdmin(admin.ModelAdmin):
     list_display = (
         "title",
         "content_type",  # News vs Office
+        "deal_type",  # Rent / Buy / Invest
         "price",  # Show Price
-        "surface_area",  # Show Size (m²)
+        "surface_area",  # Show Size (mÂ²)
         "location",  # Show Location
         "status",
         "updated_at",
@@ -19,7 +20,7 @@ class SiteContentAdmin(admin.ModelAdmin):
     )
 
     # 2. Add filters for the new types
-    list_filter = ("status", "content_type", "updated_at")
+    list_filter = ("status", "content_type", "deal_type", "updated_at")
 
     # 3. Add location to search
     search_fields = ("title", "description", "location")
@@ -48,7 +49,8 @@ class SiteContentAdmin(admin.ModelAdmin):
                 # Safety valve in case the profile is missing
                 messages.error(
                     request,
-                    "⚠️ Error: Your user account is missing an 'Administrator' profile.",
+                    "âš ï¸ Error: Your user account is missing an 'Administrator' profile.",
                 )
 
         super().save_model(request, obj, form, change)
+

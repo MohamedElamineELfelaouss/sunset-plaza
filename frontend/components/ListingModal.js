@@ -2,7 +2,15 @@ import { useEffect } from "react";
 import Image from "next/image";
 import resolveImageSrc from "../lib/resolveImageSrc";
 
-export default function ListingModal({ open, item, onClose, loading, error }) {
+export default function ListingModal({
+  open,
+  item,
+  onClose,
+  loading,
+  error,
+  onSchedule,
+  onContact,
+}) {
   useEffect(() => {
     if (!open) return;
     const onKeyDown = (event) => event.key === "Escape" && onClose();
@@ -19,6 +27,17 @@ export default function ListingModal({ open, item, onClose, loading, error }) {
   const priceLabel = item?.price
     ? `$${Number(item.price).toLocaleString()}`
     : "On Request";
+  const dealLabels = {
+    RENT: "For Rent",
+    BUY: "For Sale",
+    INVEST: "Invest",
+  };
+  const dealTones = {
+    RENT: "bg-amber-50 text-amber-700 border-amber-200",
+    BUY: "bg-emerald-50 text-emerald-700 border-emerald-200",
+    INVEST: "bg-indigo-50 text-indigo-700 border-indigo-200",
+  };
+  const dealLabel = dealLabels[item?.deal_type];
 
   return (
     <div
@@ -85,6 +104,13 @@ export default function ListingModal({ open, item, onClose, loading, error }) {
                     : "Flexible Area"
                 }
               />
+              {dealLabel ? (
+                <span
+                  className={`rounded-full border px-3 py-1 text-xs font-medium ${dealTones[item.deal_type]}`}
+                >
+                  {dealLabel}
+                </span>
+              ) : null}
               <Badge text={item?.status || "Available"} active />
             </div>
 
@@ -111,10 +137,18 @@ export default function ListingModal({ open, item, onClose, loading, error }) {
               </div>
 
               <div className="flex flex-wrap gap-3">
-                <button className="rounded-full border border-slate-200 px-6 py-3 text-xs font-semibold uppercase tracking-[0.3em] text-slate-700 transition hover:border-slate-300">
+                <button
+                  type="button"
+                  onClick={() => onSchedule?.(item)}
+                  className="rounded-full border border-slate-200 px-6 py-3 text-xs font-semibold uppercase tracking-[0.3em] text-slate-700 transition hover:border-slate-300"
+                >
                   Schedule Visit
                 </button>
-                <button className="rounded-full bg-slate-900 px-6 py-3 text-xs font-semibold uppercase tracking-[0.3em] text-white transition hover:bg-amber-400 hover:text-slate-900">
+                <button
+                  type="button"
+                  onClick={() => onContact?.(item)}
+                  className="rounded-full bg-slate-900 px-6 py-3 text-xs font-semibold uppercase tracking-[0.3em] text-white transition hover:bg-amber-400 hover:text-slate-900"
+                >
                   Talk to Agent
                 </button>
               </div>

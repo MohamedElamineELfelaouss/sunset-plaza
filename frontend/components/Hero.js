@@ -1,4 +1,4 @@
-export default function Hero({ onExplore }) {
+export default function Hero({ onExplore, onChatOpen }) {
   return (
     <section className="relative isolate overflow-hidden bg-slate-950 text-white">
       <div className="absolute inset-0">
@@ -39,7 +39,11 @@ export default function Hero({ onExplore }) {
               View Available Spaces
             </button>
 
-            <button className="rounded-full border border-white/20 px-8 py-4 text-sm font-semibold uppercase tracking-[0.2em] text-white transition hover:border-amber-200/60 hover:text-amber-200">
+            <button
+              type="button"
+              onClick={onChatOpen}
+              className="rounded-full border border-white/20 px-8 py-4 text-sm font-semibold uppercase tracking-[0.2em] text-white transition hover:border-amber-200/60 hover:text-amber-200"
+            >
               Ask AI Assistant
             </button>
           </div>

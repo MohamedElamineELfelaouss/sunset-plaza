@@ -5,6 +5,18 @@ export default function ListingCard({ item, onViewDetails }) {
   const priceLabel = item?.price
     ? `$${Number(item.price).toLocaleString()}`
     : "Contact us";
+  const dealLabels = {
+    RENT: "For Rent",
+    BUY: "For Sale",
+    INVEST: "Invest",
+  };
+  const dealTones = {
+    RENT: "border-amber-200 bg-amber-50 text-amber-700",
+    BUY: "border-emerald-200 bg-emerald-50 text-emerald-700",
+    INVEST: "border-indigo-200 bg-indigo-50 text-indigo-700",
+  };
+  const dealLabel = dealLabels[item?.deal_type];
+  const topLabel = dealLabel || "Office";
 
   return (
     <article className="group relative overflow-hidden rounded-3xl bg-white shadow-[0_24px_60px_rgba(15,23,42,0.12)] ring-1 ring-slate-200/70 transition duration-300 hover:-translate-y-1 hover:shadow-[0_32px_80px_rgba(15,23,42,0.18)]">
@@ -24,7 +36,7 @@ export default function ListingCard({ item, onViewDetails }) {
         )}
         <div className="absolute inset-0 bg-linear-to-t from-slate-950/50 via-transparent to-transparent opacity-0 transition duration-300 group-hover:opacity-100" />
         <span className="absolute left-5 top-5 rounded-full bg-white/90 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.3em] text-slate-700">
-          {item?.content_type || "Listing"}
+          {topLabel}
         </span>
       </div>
 
@@ -40,11 +52,18 @@ export default function ListingCard({ item, onViewDetails }) {
 
         <div className="flex flex-wrap gap-2 text-xs text-slate-500">
           <span className="rounded-full bg-slate-100 px-3 py-1">
-            {item?.location || "Prime location"}
+            {item?.location || "Location TBD"}
           </span>
           <span className="rounded-full bg-slate-100 px-3 py-1">
             {item?.surface_area ? `${item.surface_area} m2` : "Flexible area"}
           </span>
+          {dealLabel ? (
+            <span
+              className={`rounded-full border px-3 py-1 ${dealTones[item.deal_type]}`}
+            >
+              {dealLabel}
+            </span>
+          ) : null}
         </div>
 
         <div className="flex items-center justify-between gap-4 border-t border-slate-100 pt-4">
