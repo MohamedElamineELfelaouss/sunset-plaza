@@ -100,3 +100,44 @@ class VisitorUpdateSerializer(serializers.ModelSerializer):
         instance.save()
 
         return instance
+
+
+class AdminProfileSerializer(serializers.ModelSerializer):
+    """Serializer for admin profile updates (name, email)"""
+    name = serializers.SerializerMethodField()
+    
+    class Meta:
+        model = User
+        fields = ["id", "username", "email", "first_name", "last_name", "name"]
+        read_only_fields = ["id", "username"]
+    
+    def get_name(self, obj):
+        return f"{obj.first_name} {obj.last_name}".strip() or obj.username
+    
+    def update(self, instance, validated_data):
+        instance.email = validated_data.get("email", instance.email)
+        instance.first_name = validated_data.get("first_name", instance.first_name)
+        instance.last_name = validated_data.get("last_name", instance.last_name)
+        instance.save()
+        return instance
+
+
+class ChangePasswordSerializer(serializers.Serializer):
+    """Serializer for password change with validation"""
+    current_password = serializers.CharField(required=True, write_only=True)
+    new_password = serializers.CharField(required=True, write_only=True, min_length=6)
+    confirm_password = serializers.CharField(required=True, write_only=True)
+    
+    def validate(self, attrs):
+        if attrs['new_password'] != attrs['confirm_password']:
+            raise serializers.ValidationError({
+                "confirm_password": "Les mots de passe ne correspondent pas."
+            })
+        return attrs
+    
+    def validate_current_password(self, value):
+        user = self.context['request'].user
+        if not user.check_password(value):
+            raise serializers.ValidationError("Mot de passe actuel incorrect.")
+        return value
+

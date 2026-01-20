@@ -30,6 +30,8 @@ urlpatterns = [
     path("api/contacts/", include("apps.contacts.urls")),
     # connect the content API
     path("api/content/", include("apps.content.urls")),
+    # connect the analytics API
+    path("api/analytics/", include("apps.analytics.urls")),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

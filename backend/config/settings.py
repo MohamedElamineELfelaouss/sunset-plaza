@@ -35,6 +35,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    # modeltranslation MUST be before admin
+    "modeltranslation",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -50,12 +52,14 @@ INSTALLED_APPS = [
     "apps.contacts",
     "apps.chatbot",
     "apps.content",
+    "apps.analytics",
 ]
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "corsheaders.middleware.CorsMiddleware",
+    "django.middleware.locale.LocaleMiddleware",  # Handles Accept-Language header
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
@@ -119,7 +123,23 @@ AUTH_USER_MODEL = "users.User"
 # Internationalization
 # https://docs.djangoproject.com/en/6.0/topics/i18n/
 
-LANGUAGE_CODE = "en-us"
+from django.utils.translation import gettext_lazy as _
+
+LANGUAGES = [
+    ('fr', _('Français')),
+    ('en', _('English')),
+    ('ar', _('العربية')),
+    ('es', _('Español')),
+    ('nl', _('Nederlands')),
+    ('de', _('Deutsch')),
+    ('it', _('Italiano')),
+    ('pt', _('Português')),
+]
+
+LANGUAGE_CODE = "fr"  # Default language
+
+MODELTRANSLATION_DEFAULT_LANGUAGE = 'fr'
+MODELTRANSLATION_PREPOPULATE_LANGUAGE = 'fr'
 
 TIME_ZONE = "UTC"
 

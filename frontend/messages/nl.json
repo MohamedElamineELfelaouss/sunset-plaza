@@ -1,0 +1,131 @@
+{
+    "nav": {
+        "home": "Home",
+        "spaces": "Ruimtes",
+        "about": "Over ons",
+        "contact": "Contact",
+        "login": "Inloggen",
+        "logout": "Uitloggen",
+        "myAccount": "Mijn account",
+        "admin": "Beheer"
+    },
+    "hero": {
+        "title": "Uw toekomstige werkruimte bij",
+        "brand": "Sunset Plaza",
+        "subtitle": "Ontdek moderne en prestigieuze kantoorruimtes in Casablanca, ontworpen voor ambitieuze bedrijven die streven naar excellentie.",
+        "cta": "Ontdek ruimtes",
+        "secondaryCta": "Neem contact op",
+        "stats": {
+            "spaces": "Beschikbare ruimtes",
+            "clients": "Tevreden klanten",
+            "sqm": "m² kantoren"
+        }
+    },
+    "spaces": {
+        "title": "Onze Ruimtes",
+        "subtitle": "Ontdek onze selectie premium kantoorruimtes",
+        "filter": {
+            "all": "Alle",
+            "rent": "Huren",
+            "buy": "Kopen",
+            "invest": "Investeren"
+        },
+        "card": {
+            "from": "Vanaf",
+            "perMonth": "/maand",
+            "sqm": "m²",
+            "floor": "Verdieping",
+            "viewDetails": "Bekijk details"
+        }
+    },
+    "advantages": {
+        "title": "Waarom Sunset Plaza?",
+        "subtitle": "De voordelen die het verschil maken",
+        "items": {
+            "location": {
+                "title": "Premium Locatie",
+                "description": "In het hart van het zakendistrict van Casablanca, dicht bij alle voorzieningen"
+            },
+            "design": {
+                "title": "Modern Design",
+                "description": "Hedendaagse architectuur met hoogwaardige afwerking en natuurlijk licht"
+            },
+            "security": {
+                "title": "24/7 Beveiliging",
+                "description": "Geavanceerd beveiligingssysteem met toegangscontrole en continue bewaking"
+            },
+            "services": {
+                "title": "Inbegrepen Diensten",
+                "description": "Conciërge, onderhoud, parking en premium gemeenschappelijke ruimtes"
+            }
+        }
+    },
+    "contact": {
+        "title": "Neem contact op",
+        "subtitle": "Ons team staat klaar om al uw vragen te beantwoorden",
+        "form": {
+            "name": "Volledige naam",
+            "email": "E-mailadres",
+            "phone": "Telefoon",
+            "company": "Bedrijf",
+            "requestType": "Type aanvraag",
+            "requestTypes": {
+                "info": "Informatie aanvragen",
+                "meeting": "Bezoek plannen",
+                "investment": "Investeringsmogelijkheid"
+            },
+            "message": "Uw bericht",
+            "submit": "Verstuur aanvraag",
+            "sending": "Versturen...",
+            "success": "Bericht succesvol verzonden!",
+            "error": "Er is een fout opgetreden. Probeer het opnieuw."
+        },
+        "info": {
+            "address": "Boulevard de la Corniche, Casablanca",
+            "phone": "+212 5 22 XX XX XX",
+            "email": "contact@sunsetplaza.ma",
+            "hours": "Ma - Vr: 9u - 18u"
+        }
+    },
+    "chat": {
+        "title": "AI Assistent",
+        "subtitle": "Privé conciërge",
+        "placeholder": "Schrijf uw bericht...",
+        "welcome": "Welkom bij Sunset Plaza! Hoe kan ik u helpen bij uw zoektocht naar ruimte of uw investeringsdoelen?",
+        "quickActions": {
+            "availability": "Beschikbaarheid",
+            "tour": "Bezoek plannen",
+            "invest": "Investeren",
+            "pricing": "Prijzen"
+        }
+    },
+    "footer": {
+        "description": "Sunset Plaza - Het adres van excellentie voor uw bedrijf in Casablanca",
+        "links": {
+            "company": "Bedrijf",
+            "about": "Over ons",
+            "careers": "Carrières",
+            "contact": "Contact",
+            "resources": "Bronnen",
+            "blog": "Blog",
+            "faq": "FAQ",
+            "support": "Ondersteuning",
+            "legal": "Juridisch",
+            "privacy": "Privacy",
+            "terms": "Voorwaarden"
+        },
+        "copyright": "© 2026 Sunset Plaza. Alle rechten voorbehouden."
+    },
+    "common": {
+        "loading": "Laden...",
+        "error": "Fout",
+        "retry": "Opnieuw proberen",
+        "close": "Sluiten",
+        "save": "Opslaan",
+        "cancel": "Annuleren",
+        "confirm": "Bevestigen",
+        "back": "Terug",
+        "next": "Volgende",
+        "previous": "Vorige"
+    }
+}

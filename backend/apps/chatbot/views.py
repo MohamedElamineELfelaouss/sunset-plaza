@@ -1,6 +1,9 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.permissions import AllowAny
+from rest_framework.decorators import api_view, permission_classes
+from rest_framework import status
+from django.db.models import Count, Avg
 from .models import ChatbotInteraction, InterestCategory
 
 # Import the constant we just made
@@ -67,3 +70,66 @@ class ChatbotView(APIView):
                 "confidence": confidence,
             }
         )
+
+
+# ==================== ADMIN ENDPOINTS ====================
+
+@api_view(['GET'])
+@permission_classes([AllowAny])  # TODO: Change to IsAdminUser
+def admin_chatbot_list(request):
+    """
+    GET /api/chatbot/admin/
+    List all chatbot interactions
+    """
+    interactions = ChatbotInteraction.objects.all().order_by('-interaction_date')[:100]
+    
+    data = [{
+        'id': i.id,
+        'question': i.question[:100] + '...' if len(i.question) > 100 else i.question,
+        'response': i.response[:150] + '...' if len(i.response) > 150 else i.response,
+        'category': i.category.label if i.category else 'Unknown',
+        'confidence': round(i.confidence_score, 2),
+        'date': i.interaction_date.isoformat(),
+    } for i in interactions]
+    
+    return Response(data)
+
+
+@api_view(['GET'])
+@permission_classes([AllowAny])  # TODO: Change to IsAdminUser
+def admin_chatbot_stats(request):
+    """
+    GET /api/chatbot/admin/stats/
+    Get chatbot statistics
+    """
+    total = ChatbotInteraction.objects.count()
+    avg_confidence = ChatbotInteraction.objects.aggregate(avg=Avg('confidence_score'))['avg'] or 0
+    
+    # By category
+    categories = ChatbotInteraction.objects.values('category__label').annotate(
+        count=Count('id')
+    ).order_by('-count')
+    
+    return Response({
+        'total_interactions': total,
+        'avg_confidence': round(avg_confidence, 2),
+        'by_category': [
+            {'category': c['category__label'] or 'Unknown', 'count': c['count']}
+            for c in categories
+        ]
+    })
+
+
+@api_view(['DELETE'])
+@permission_classes([AllowAny])  # TODO: Change to IsAdminUser
+def admin_chatbot_delete(request, pk):
+    """
+    DELETE /api/chatbot/admin/<pk>/
+    Delete a chatbot interaction
+    """
+    try:
+        interaction = ChatbotInteraction.objects.get(pk=pk)
+        interaction.delete()
+        return Response({"message": "Deleted"}, status=status.HTTP_204_NO_CONTENT)
+    except ChatbotInteraction.DoesNotExist:
+        return Response({"error": "Not found"}, status=status.HTTP_404_NOT_FOUND)

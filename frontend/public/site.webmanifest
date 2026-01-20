@@ -1,0 +1,16 @@
+{
+    "name": "Sunset Plaza",
+    "short_name": "Sunset Plaza",
+    "description": "Espaces de bureaux premium à Casablanca",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#C4A052",
+    "icons": [
+        {
+            "src": "/favicon.ico",
+            "sizes": "64x64",
+            "type": "image/x-icon"
+        }
+    ]
+}

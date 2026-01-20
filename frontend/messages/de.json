@@ -1,0 +1,131 @@
+{
+    "nav": {
+        "home": "Startseite",
+        "spaces": "Räume",
+        "about": "Über uns",
+        "contact": "Kontakt",
+        "login": "Anmelden",
+        "logout": "Abmelden",
+        "myAccount": "Mein Konto",
+        "admin": "Verwaltung"
+    },
+    "hero": {
+        "title": "Ihr zukünftiger Arbeitsplatz bei",
+        "brand": "Sunset Plaza",
+        "subtitle": "Entdecken Sie moderne und prestigeträchtige Büroflächen in Casablanca, entwickelt für ambitionierte Unternehmen, die Exzellenz anstreben.",
+        "cta": "Räume entdecken",
+        "secondaryCta": "Kontaktieren Sie uns",
+        "stats": {
+            "spaces": "Verfügbare Räume",
+            "clients": "Zufriedene Kunden",
+            "sqm": "m² Bürofläche"
+        }
+    },
+    "spaces": {
+        "title": "Unsere Räume",
+        "subtitle": "Entdecken Sie unsere Auswahl an Premium-Büroflächen",
+        "filter": {
+            "all": "Alle",
+            "rent": "Mieten",
+            "buy": "Kaufen",
+            "invest": "Investieren"
+        },
+        "card": {
+            "from": "Ab",
+            "perMonth": "/Monat",
+            "sqm": "m²",
+            "floor": "Etage",
+            "viewDetails": "Details ansehen"
+        }
+    },
+    "advantages": {
+        "title": "Warum Sunset Plaza?",
+        "subtitle": "Die Vorteile, die den Unterschied machen",
+        "items": {
+            "location": {
+                "title": "Premium-Standort",
+                "description": "Im Herzen des Geschäftsviertels von Casablanca, in der Nähe aller Annehmlichkeiten"
+            },
+            "design": {
+                "title": "Modernes Design",
+                "description": "Zeitgenössische Architektur mit hochwertiger Ausstattung und natürlichem Licht"
+            },
+            "security": {
+                "title": "24/7 Sicherheit",
+                "description": "Fortschrittliches Sicherheitssystem mit Zugangskontrolle und kontinuierlicher Überwachung"
+            },
+            "services": {
+                "title": "Inklusivleistungen",
+                "description": "Concierge, Wartung, Parkplatz und Premium-Gemeinschaftsbereiche"
+            }
+        }
+    },
+    "contact": {
+        "title": "Kontaktieren Sie uns",
+        "subtitle": "Unser Team steht Ihnen für alle Fragen zur Verfügung",
+        "form": {
+            "name": "Vollständiger Name",
+            "email": "E-Mail-Adresse",
+            "phone": "Telefon",
+            "company": "Unternehmen",
+            "requestType": "Art der Anfrage",
+            "requestTypes": {
+                "info": "Informationsanfrage",
+                "meeting": "Besichtigung planen",
+                "investment": "Investitionsmöglichkeit"
+            },
+            "message": "Ihre Nachricht",
+            "submit": "Anfrage senden",
+            "sending": "Wird gesendet...",
+            "success": "Nachricht erfolgreich gesendet!",
+            "error": "Ein Fehler ist aufgetreten. Bitte versuchen Sie es erneut."
+        },
+        "info": {
+            "address": "Boulevard de la Corniche, Casablanca",
+            "phone": "+212 5 22 XX XX XX",
+            "email": "contact@sunsetplaza.ma",
+            "hours": "Mo - Fr: 9h - 18h"
+        }
+    },
+    "chat": {
+        "title": "KI-Assistent",
+        "subtitle": "Privater Concierge",
+        "placeholder": "Schreiben Sie Ihre Nachricht...",
+        "welcome": "Willkommen bei Sunset Plaza! Wie kann ich Ihnen bei Ihrer Raumsuche oder Ihren Investitionszielen helfen?",
+        "quickActions": {
+            "availability": "Verfügbarkeit",
+            "tour": "Besichtigung planen",
+            "invest": "Investieren",
+            "pricing": "Preise"
+        }
+    },
+    "footer": {
+        "description": "Sunset Plaza - Die Adresse der Exzellenz für Ihr Unternehmen in Casablanca",
+        "links": {
+            "company": "Unternehmen",
+            "about": "Über uns",
+            "careers": "Karriere",
+            "contact": "Kontakt",
+            "resources": "Ressourcen",
+            "blog": "Blog",
+            "faq": "FAQ",
+            "support": "Support",
+            "legal": "Rechtliches",
+            "privacy": "Datenschutz",
+            "terms": "AGB"
+        },
+        "copyright": "© 2026 Sunset Plaza. Alle Rechte vorbehalten."
+    },
+    "common": {
+        "loading": "Laden...",
+        "error": "Fehler",
+        "retry": "Erneut versuchen",
+        "close": "Schließen",
+        "save": "Speichern",
+        "cancel": "Abbrechen",
+        "confirm": "Bestätigen",
+        "back": "Zurück",
+        "next": "Weiter",
+        "previous": "Zurück"
+    }
+}

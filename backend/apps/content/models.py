@@ -69,3 +69,21 @@ class SiteContent(models.Model):
 
     def __str__(self):
         return f"[{self.get_content_type_display()}] {self.title}"
+
+
+class ContentImage(models.Model):
+    """Multiple images for a single listing"""
+    content = models.ForeignKey(
+        SiteContent,
+        on_delete=models.CASCADE,
+        related_name="images"
+    )
+    image = models.ImageField(upload_to="content_images/")
+    caption = models.CharField(max_length=255, blank=True, default="")
+    order = models.PositiveIntegerField(default=0)
+    
+    class Meta:
+        ordering = ["order"]
+    
+    def __str__(self):
+        return f"Image {self.order} for {self.content.title}"
