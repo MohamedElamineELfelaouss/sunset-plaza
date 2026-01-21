@@ -1,134 +1,180 @@
 # 🌅 Sunset Plaza - Premium Real Estate Management System
 
-![Status](https://img.shields.io/badge/Status-Active-success)
-![Version](https://img.shields.io/badge/Version-1.0.0-blue)
-![License](https://img.shields.io/badge/License-Private-orange)
+![Status](https://img.shields.io/badge/Status-Active-success?style=for-the-badge)
+![Version](https://img.shields.io/badge/Version-1.0.0-blue?style=for-the-badge)
+![License](https://img.shields.io/badge/License-Proprietary-orange?style=for-the-badge)
 
-**Sunset Plaza** is a state-of-the-art real estate management platform designed for premium property listings. It features a stunning, responsive frontend built with **Next.js** and a robust, scalable backend powered by **Django REST Framework**.
+**Sunset Plaza** is a sophisticated, AI-driven real estate platform designed to streamline property management and enhance the user experience for prospective buyers and renters. It merges a high-performance **Django REST Framework** backend with a modern, responsive **Next.js 16** frontend.
 
-What sets Sunset Plaza apart is its **AI-driven Admin Panel**, capable of instantly translating property details into 7+ languages, ensuring global reach with zero friction.
+The platform distinguishes itself with deep AI integration: a **Gemini-powered Chatbot** that intelligently categorizes user queries and handles sales pitches, and an **Automated Content Translation System** that breaks down language barriers for international listings.
 
 ---
 
 ## 🚀 Key Features
 
-### 🧠 AI-Powered Multilingual Support
-- **Auto-Translation**: Instantly translate listings from French to **English, Arabic, Spanish, Dutch, German, Italian, and Portuguese**.
-- **Hybrid Engine**: Utilizes **DeepL API** for European languages and **Google Translate** for Arabic to ensure maximum accuracy.
-- **Batch Processing**: Select multiple listings and translate them all in one click with real-time progress tracking.
-- **Visual Feedback**: visual indicators (🌐) for translated listings and smart status badges.
+### 🤖 Intelligent AI Chatbot
+- **Gemini Engine**: Powered by Google's Gemini API for natural, context-aware conversations.
+- **Smart Categorization**: Automatically detects user intent (Pricing, Investment, Support) and tags interactions.
+- **Sales Intelligence**: Identifies high-value "Sales Pitch" opportunities and dynamically triggers booking forms.
+- **Confidence Scoring**: Tracks AI confidence levels for quality assurance and analytics.
 
-### 🎨 Modern Admin Dashboard
-- **Sleek UI/UX**: Built with **Tailwind CSS**, featuring glassmorphism effects, dark mode aesthetics, and smooth transitions.
-- **Media Management**: Drag-and-drop image uploads, instant reordering, and "Set as Main" functionality without page reloads.
-- **Real-time Updates**: Immediate visual feedback for all CRUD operations.
-- **Smart Filtering**: Filter by status (Published/Draft), view listings in grid layout, and manage content efficiently.
+### 🌍 Multilingual Content Management (CMS)
+- **One-Click Translation**: Integrated auto-translation pipeline using DeepL and Google Translate APIs.
+- **Language Support**: Native support for **French (Source), English, and Arabic (RTL)**, expandable to 7+ languages (ES, NL, DE, IT, PT).
+- **Batch Processing**: Select multiple property listings in the admin panel and translate them simultaneously with real-time progress tracking.
+- **Status Indicators**: Visual cues (🌐) instantly identify translated vs. untranslated inventory.
 
-### ⚡ Technical Excellence
-- **Frontend**: Next.js 14 (App Router), TypeScript, Framer Motion, Lucide React.
-- **Backend**: Django 5.0, Django REST Framework, django-modeltranslation.
-- **Performance**: Optimized image delivery, server-side rendering (SSR), and fast API response times.
+### 🛡️ Robust Admin Dashboard
+- **Modern UI/UX**: Built with **Tailwind CSS v4** and **Radix UI** for a premium, accessible feel.
+- **Media Management**: Advanced image handler supporting drag-and-drop uploads, reordering, and "Set Main Image" functionality.
+- **Role-Based Access**: Secure JWT authentication with distinct roles for Admin and Visitors.
+- **Real-Time Analytics**: Dashboard widgets for monitoring chatbot interactions and content engagement.
+
+### ⚡ Performance & Architecture
+- **Next.js 16 (App Router)**: Leverages Server Components and Server Actions for optimal performance and SEO.
+- **Django 6.0**: Uses the latest Django features for a secure, scalable API foundation.
+- **Type Safety**: End-to-end type safety with TypeScript and Zod validation schemas.
 
 ---
 
 ## 🛠️ Technology Stack
 
-### Frontend
-- ![Next.js](https://img.shields.io/badge/Next.js-000000?style=flat&logo=next.js&logoColor=white) **Next.js 14**
-- ![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=flat&logo=typescript&logoColor=white) **TypeScript**
-- ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=flat&logo=tailwind-css&logoColor=white) **Tailwind CSS**
-- ![React](https://img.shields.io/badge/React-20232A?style=flat&logo=react&logoColor=61DAFB) **React**
+### Backend Infrastructure
+| Component | Technology | Description |
+|-----------|------------|-------------|
+| **Core** | **Django 6.0** | High-level Python web framework |
+| **API** | **Django REST Framework** | Powerful toolkit for Web APIs |
+| **Database** | **SQLite / PostgreSQL** | Flexible data storage options |
+| **Auth** | **SimpleJWT** | JSON Web Token authentication |
+| **AI** | **Google Generative AI** | Gemini API for chatbot logic |
+| **I18n** | **Django-Modeltranslation** | Database-level translation storage |
+| **Utils** | **DeepL & Deep-Translator** | Translation services integration |
 
-### Backend
-- ![Django](https://img.shields.io/badge/Django-092E20?style=flat&logo=django&logoColor=white) **Django**
-- ![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white) **Python 3.12**
-- ![DRF](https://img.shields.io/badge/Django_REST-ff1744?style=flat&logo=django&logoColor=white) **DRF**
-- ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=flat&logo=postgresql&logoColor=white) **PostgreSQL** (Recommended)
-
----
-
-## 📸 Screenshots
-
-*(Add your screenshots here)*
-- **Admin Dashboard**: Grid view of listings with status badges.
-- **Translation Modal**: Interface for auto-translating content.
-- **Listing Details**: High-fidelity property showcase.
+### Frontend Application
+| Component | Technology | Description |
+|-----------|------------|-------------|
+| **Framework** | **Next.js 16** | React framework for production |
+| **Library** | **React 19** | Latest UI library features |
+| **Language** | **TypeScript** | Static typing for reliability |
+| **Styling** | **Tailwind CSS v4** | Utility-first CSS framework |
+| **Animation** | **Framer Motion** | Production-ready animation library |
+| **Components** | **Radix UI** | Unstyled, accessible UI primitives |
+| **State** | **TanStack Query** | Asynchronous state management |
+| **Icons** | **Lucide React** | Beautiful & consistent open-source icons |
 
 ---
 
 ## 🏁 Getting Started
 
 ### Prerequisites
-- Node.js > 18.x
-- Python > 3.10
-- DeepL API Key (for translations)
+- **Node.js**: v18.17.0 or higher
+- **Python**: v3.10 or higher
+- **API Keys**: Google Gemini API Key & DeepL API Key
 
-### 1. Backend Setup
+### 1️⃣ Backend Setup
 
 ```bash
-# Navigate to backend
+# 1. Navigate to the backend directory
 cd backend
 
-# Create virtual environment
+# 2. Create a virtual environment
 python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
 
-# Install dependencies
+# 3. Activate the virtual environment
+# Windows:
+venv\Scripts\activate
+# macOS/Linux:
+source venv/bin/activate
+
+# 4. Install python dependencies
 pip install -r requirements.txt
 
-# Run migrations
+# 5. Run database migrations
 python manage.py migrate
 
-# Create superuser
+# 6. Create a superuser for Admin Panel access
 python manage.py createsuperuser
 
-# Start server
+# 7. Start the development server
 python manage.py runserver
 ```
 
-### 2. Frontend Setup
+### 2️⃣ Frontend Setup
 
 ```bash
-# Navigate to frontend
+# 1. Navigate to the frontend directory
 cd frontend
 
-# Install dependencies
+# 2. Install node dependencies
 npm install
 
-# Start development server
+# 3. Start the Next.js development server
 npm run dev
 ```
 
-### 3. Environment Variables
+The app will be available at `http://localhost:3000` and the API at `http://localhost:8000`.
 
-Create a `.env` file in the `backend` directory:
+---
+
+## ⚙️ Environment Variables
+
+Create a `.env` file in the `backend` directory with the following keys. **Do not commit this file.**
 
 ```env
-SECRET_KEY=your_secret_key
+# Django Security
+SECRET_KEY=your_django_secret_key_here
 DEBUG=True
-DEEPL_API_KEY=your_deepl_api_key
+
+# AI Services
+GOOGLE_API_KEY=your_gemini_api_key_here
+DEEPL_API_KEY=your_deepl_api_key_here
+
+# Database (Optional - defaults to SQLite)
+# DB_NAME=sunset_plaza
+# DB_USER=...
 ```
 
 ---
 
-## 🤖 API Documentation
 
-The backend provides a comprehensive REST API. Once the server is running, visit:
-- **Swagger UI**: `http://localhost:8000/api/schema/swagger-ui/`
-- **Redoc**: `http://localhost:8000/api/schema/redoc/`
+
+## 📂 Project Structure
+
+```
+sunset-plaza/
+├── backend/                # Django API
+│   ├── apps/               # Modular Django apps
+│   │   ├── analytics/      # Data tracking
+│   │   ├── chatbot/        # Gemini AI logic
+│   │   ├── contacts/       # Form submissions
+│   │   ├── content/        # Listings & Translations
+│   │   └── users/          # Auth & Profiles
+│   ├── config/             # Project settings
+│   └── requirements.txt    # Python dependencies
+│
+└── frontend/               # Next.js App
+    ├── app/                # App Router pages
+    │   ├── admin/          # Protected Dashboard routes
+    │   └── (public)/       # Public landing pages
+    ├── components/         # Reusable UI components
+    └── public/             # Static assets
+```
 
 ---
 
 ## 🤝 Contributing
 
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+We welcome contributions to Sunset Plaza!
+
+1. **Fork** the repository.
+2. Create a new branch: `git checkout -b feature/NewFeature`.
+3. Commit your changes: `git commit -m 'Add new feature'`.
+4. Push to the branch: `git push origin feature/NewFeature`.
+5. Submit a **Pull Request**.
 
 ---
 
 ## 📞 Contact
 
-**Project Link**: [https://github.com/MohamedElamineELfelaouss/sunset-plaza](https://github.com/MohamedElamineELfelaouss/sunset-plaza)
+**Project Maintenance**: [MohamedElamineELfelaouss](https://github.com/MohamedElamineELfelaouss)
+**Repository**: [sunset-plaza](https://github.com/MohamedElamineELfelaouss/sunset-plaza)
